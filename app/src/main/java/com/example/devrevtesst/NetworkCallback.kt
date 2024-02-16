@@ -1,4 +1,4 @@
-package com.example.devrevcustomnetworksdk
+package com.example.devrevtesst
 
 interface NetworkCallback {
 

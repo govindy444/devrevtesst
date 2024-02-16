@@ -1,4 +1,4 @@
-package com.example.devrevcustomnetworksdk
+package com.example.devrevtesst
 
 import android.os.AsyncTask
 import java.io.BufferedReader
