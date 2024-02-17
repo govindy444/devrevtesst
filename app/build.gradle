@@ -1,6 +1,8 @@
 plugins {
     id 'com.android.library'
     id 'org.jetbrains.kotlin.android'
+    id 'maven-publish'          // << --- ADD This
+
 }
 
 android {
@@ -21,6 +23,8 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            consumerProguardFiles 'proguard-rules.pro'
+            consumerProguardFiles 'consumer-rules.pro'
         }
     }
     compileOptions {
@@ -30,8 +34,24 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
+
 }
 
+publishing {
+    publications {
+        maven(MavenPublication) {
+            groupId = 'com.github.govindy444'
+            artifactId = 'devrevtesst'
+            version = "1.0"
+            pom {
+                description = 'Custom Network Sdk'
+            }
+        }
+    }
+    repositories {               // << --- ADD This
+        mavenLocal()
+    }
+}
 dependencies {
 
     implementation 'androidx.core:core-ktx:1.12.0'
